@@ -30,18 +30,24 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+
+
 const doctorRoutes = require('./routes/doctorRoutes.js');
 const connectDB = require('./config/db.js');
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://verbal-frontend.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 app.use(express.json());
 
 // Connect to DB
 connectDB();
 
 // API Routes
-app.use('/api/doctors', doctorRoutes);
+app.use('/', doctorRoutes);
 
 // Important: Use Render-assigned port
 const PORT = process.env.PORT || 10000;

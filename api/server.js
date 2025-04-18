@@ -30,8 +30,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const doctorRoutes = require('./routes/doctorRoutes');
-const connectDB = require('./config/db.js');
+const doctorRoutes = require('../routes/doctorRoutes.js');
+const connectDB = require('../config/db.js');
 
 const app = express();
 app.use(cors());

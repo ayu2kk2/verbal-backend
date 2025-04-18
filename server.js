@@ -1,48 +1,54 @@
 
 // const express = require('express');
-// const mongoose = require('mongoose');
 // const cors = require('cors');
-// require('dotenv').config();
-
+// const dotenv = require('dotenv');
+// const connectDB = require('./config/db.js'); // 👉 importing db.js
 // const doctorRoutes = require('./routes/doctorRoutes');
 
+// dotenv.config();
+
 // const app = express();
+
+// // Middleware
 // app.use(cors());
 // app.use(express.json());
 
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log("✅ MongoDB connected"))
-//   .catch(err => console.error("❌ MongoDB connection error:", err));
+// // Connect to MongoDB using the modular function
+// connectDB();
 
-// app.use('/api/doctors', doctorRoutes); // 👈 This is the route your frontend is calling
+// // Routes
+// app.use('/api/doctors', doctorRoutes);
 
+// // Server
 // const PORT = process.env.PORT || 5001;
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
 // });
 
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db.js'); // 👉 importing db.js
-const doctorRoutes = require('./routes/doctorRoutes');
+require('dotenv').config();
 
-dotenv.config();
+const doctorRoutes = require('./routes/doctorRoutes');
+const connectDB = require('./db'); // assuming db.js is in the same folder
 
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB using the modular function
+// Connect to DB
 connectDB();
 
-// Routes
+// API Routes
 app.use('/api/doctors', doctorRoutes);
 
-// Server
+
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

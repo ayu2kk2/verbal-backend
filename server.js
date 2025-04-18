@@ -33,6 +33,7 @@ require('dotenv').config();
 
 const doctorRoutes = require('./routes/doctorRoutes.js');
 const connectDB = require('./config/db.js');
+const allowedOrigins = ['https://verbal-frontend.vercel.app'];
 
 const app = express();
 // app.use(cors());

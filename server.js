@@ -31,7 +31,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const doctorRoutes = require('./routes/doctorRoutes');
-const connectDB = require('./db'); // assuming db.js is in the same folder
+const connectDB = require('./config/db.js'); // assuming db.js is in the same folder
 
 const app = express();
 app.use(cors());

@@ -31,15 +31,15 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-
 const doctorRoutes = require('./routes/doctorRoutes.js');
 const connectDB = require('./config/db.js');
 
 const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: 'https://verbal-frontend.vercel.app/',
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 }));
 app.use(express.json());
 

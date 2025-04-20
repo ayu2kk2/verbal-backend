@@ -1,17 +1,3 @@
-// const mongoose = require('mongoose');
-
-// const doctorSchema = new mongoose.Schema({
-//     name: { type: String, required: true },
-//     specialization: { type: String, required: true },
-//     experience: { type: Number, required: true },
-//     rating: { type: Number, required: true },
-//     contact: { type: String, required: true },
-//     location: { type: String, required: true },
-// });
-
-// const Doctor = mongoose.model('Doctor', doctorSchema);
-// module.exports = Doctor;
-
 const mongoose = require('mongoose');
 
 const doctorSchema = new mongoose.Schema({
@@ -48,6 +34,10 @@ const doctorSchema = new mongoose.Schema({
     required: true
   },
   website: {
+    type: String,
+    required: false
+  },
+  image: {
     type: String,
     required: false
   }

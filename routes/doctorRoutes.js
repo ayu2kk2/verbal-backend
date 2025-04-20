@@ -1,8 +1,25 @@
 
 
+// const express = require('express');
+// const router = express.Router();
+// const Doctor = require('../models/Doctor.js');
+
+// // GET all doctors
+// router.get('/', async (req, res) => {
+//   try {
+//     const doctors = await Doctor.find();
+//     res.json(doctors);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
+
+// module.exports = router;
+
+
 const express = require('express');
 const router = express.Router();
-const Doctor = require('../models/Doctor.js');
+const Doctor = require('../models/Doctor');
 
 // GET all doctors
 router.get('/', async (req, res) => {
@@ -10,7 +27,7 @@ router.get('/', async (req, res) => {
     const doctors = await Doctor.find();
     res.json(doctors);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: 'Server Error' });
   }
 });
 

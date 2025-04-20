@@ -22,7 +22,7 @@ const router = express.Router();
 const Contact = require('../models/Contact');
 const sendEmail = require('../utils/sendEmail');
 
-router.post('/contact', async (req, res) => {
+router.post('/', async (req, res) => {
   const { name, email, phone, message } = req.body;
 
   try {

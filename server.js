@@ -85,8 +85,8 @@ app.use(cors({
 }));
 
 // Routes
-app.use('/api/contact', contactRoutes); // 👈 NEW: All contact APIs under /api/contact
-app.use('/api/doctors', doctorRoutes);  // 👈 NEW: All doctor APIs under /api/doctors
+app.use('/api/contact', contactRoutes); // 
+app.use('/api/doctors', doctorRoutes);  // 
 
 const PORT = process.env.PORT || 10000;
 

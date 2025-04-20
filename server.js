@@ -38,12 +38,13 @@ const allowedOrigins = ['https://verbal-frontend.vercel.app'];
 
 const app = express();
 app.use('/contact', contactRoutes);
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
 app.use(express.json());
+
+app.use(cors({
+  origin: 'https://verbal-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 // Connect to DB
 connectDB();

@@ -26,6 +26,7 @@
 // });
 
 const express = require('express');
+const contactRoutes = require('./routes/contactRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
@@ -36,7 +37,7 @@ const connectDB = require('./config/db.js');
 const allowedOrigins = ['https://verbal-frontend.vercel.app'];
 
 const app = express();
-// app.use(cors());
+app.use('/contact', contactRoutes);
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
